@@ -12,12 +12,13 @@ class LinkPreviewNativeActionView: RouterViewWithLogger, LinkPreviewMenuUpdatabl
   @NativeActionProp(updateAction: true) var isOn: Bool?
   @NativeActionProp(updateAction: true) var keepPresented: Bool?
   @NativeActionProp(updateAction: true) var discoverabilityLabel: String?
-  @NativeActionProp(updateAction: true) var subtitle: String?
+  @NativeActionProp(updateAction: true, updateMenu: true) var subtitle: String?
 
   // MARK: - Menu only props
   @NativeActionProp(updateMenu: true) var singleSelection: Bool = false
   @NativeActionProp(updateMenu: true) var displayAsPalette: Bool = false
   @NativeActionProp(updateMenu: true) var displayInline: Bool = false
+  @NativeActionProp(updateMenu: true) var preferredElementSize: MenuElementSize?
 
   // MARK: - UIBarButtonItem props
   @NativeActionProp(updateAction: true, updateMenu: true) var routerHidden: Bool = false
@@ -81,6 +82,16 @@ class LinkPreviewNativeActionView: RouterViewWithLogger, LinkPreviewMenuUpdatabl
       options: options,
       children: subActions
     )
+
+    if let subtitle = subtitle {
+      menuAction.subtitle = subtitle
+    }
+
+    if #available(iOS 16.0, *) {
+      if let preferredElementSize = preferredElementSize {
+        menuAction.preferredElementSize = preferredElementSize.toUIMenuElementSize()
+      }
+    }
 
     parentMenuUpdatable?.updateMenu()
   }
