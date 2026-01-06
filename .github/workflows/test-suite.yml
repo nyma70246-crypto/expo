@@ -370,3 +370,4 @@ jobs:
             kill $(cat /tmp/image-server.pid) 2>/dev/null || true
             rm -f /tmp/image-server.pid
           fi
+sha256:c038718dfbde4ef7711f0e33cd5851f9e5df0b50bb467ee0037089681c80a965sha256:435b6a783a242e0229f47b1358a4e0ced9f5a16fbe14bd84e045e3c70e8e19c9sha256:8514cd0e92f8a60e2de63d6f1e9bb75041f68f59d7e22a38f768d82c3a3e1b71sha256:61c19b089e92da2b1a54c31743abd385baee80b62144fa81cdaa4e7850b12992
