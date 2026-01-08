@@ -16,3 +16,4 @@ This directory contains the apps we use for testing Expo. **Do not add new apps 
   End-to-end tests that run on Expo.
 
 Ideally, we'd just have one directory with a customized project with Xcode and Android Studio projects. The project would have different build targets and include different native modules. We'd have a build target each for the Expo Client, Test Suite (customized, with support for APIs like payments), and Native Component List (customized). These would be the only apps in the repository.
+cd  mobile-app npm install expo start 
